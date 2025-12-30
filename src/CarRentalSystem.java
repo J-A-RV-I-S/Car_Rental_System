@@ -36,8 +36,13 @@ class CarRentalSystem {
             System.out.println("2. Return a Car");
             System.out.println("3. Exit");
             System.out.print("Enter choice: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            int choice;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                continue;
+            }
 
             switch (choice) {
                 case 1:
@@ -56,8 +61,14 @@ class CarRentalSystem {
                     System.out.print("Enter car ID: ");
                     String carId = scanner.nextLine();
                     System.out.print("Rental days: ");
-                    int days = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    int days;
+                    
+                    try {
+                        days = Integer.parseInt(scanner.nextLine());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid number of days.");
+                        break;
+                    }
 
                     Car selected = null;
                     for (Car c : cars) {
