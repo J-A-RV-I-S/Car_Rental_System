@@ -22,8 +22,8 @@ pipeline {
           java -version
           javac -version
 
-          rm -f bin
-          mkdir bin
+          rm -f bin/*
+          mkdir -p bin
 
           javac -d bin src/*.java
         '''
