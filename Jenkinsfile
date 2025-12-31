@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  triggers {
+    cron('H/2 * * * *')
+  }
+
   environment {
     IMAGE_NAME= "car-rental-system"
     IMAGE_TAG= "1.0"
